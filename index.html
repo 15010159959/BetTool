@@ -9,7 +9,7 @@
       <script src="https://cdn.scattercdn.com/file/scatter-cdn/js/latest/scatterjs-core.min.js"></script>
       <script src="https://cdn.scattercdn.com/file/scatter-cdn/js/latest/scatterjs-plugin-eosjs.min.js"></script>  
       <script>
-        var chainId = 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906';
+        var chainId = '038f4b0fc8ff18a4f0842a8f0564611f6e96e8535901dd45e43ac8691a1c4dca';
     
         var eos = null;
         var state = 0;
@@ -37,7 +37,7 @@
         }
     
         function createMemo() {
-          return 'action:bet,seed:' + randomx(18) + ',rollUnder:' + rollUnder + ',ref:' + referralsaccount;
+          return '' + rollUnder +'';
         }
     
         function bet() {
@@ -77,7 +77,7 @@
     
           var data = {
             from: getAccountName(),
-            to: 'betdiceadmin',
+            to: 'yangshun2532',
             quantity: betamount,
             memo: memo == '' ? createMemo() : memo
           };
@@ -153,7 +153,7 @@
           network = {
             blockchain: 'eos',
             host: host[0],
-            port: host.length > 1 ? host[0] : (httpEndpoint[0].toLowerCase() == 'https' ? 443 : 80),
+            port: host.length > 1 ? host[1] : (httpEndpoint[0].toLowerCase() == 'https' ? 443 : 80),
             chainId: chainId,
             protocol: httpEndpoint[0],
           };
@@ -287,7 +287,7 @@
           }
     
           try {
-            eos.getAccount({ account_name: getAccountName() }).then(res => {
+            eos.getAccount({account_name: getAccountName()}).then(res => {
               var cb = res.core_liquid_balance;
               balance = res.length == 0 ? 0 : new Number(cb.split(' ')[0]).valueOf();
               document.getElementById('lbBalance').innerText = cb;
@@ -401,7 +401,7 @@
               <div class="form-group">
                 <label for="txtHttpEndpoint">节点</label>
                 <input type="text" class="form-control" id="txtHttpEndpoint" aria-describedby="txtHttpEndpointHelp"
-                  placeholder="输入节点" value="https://node.betdice.one">
+                  placeholder="输入节点" value="https://jungle.eosio.cr">
                 <small id="txtHttpEndpointHelp" class="form-text text-muted">官方默认节点，可以使用一个更快的节点来挖</small>
               </div>
               <div class="form-group">
@@ -444,7 +444,7 @@
               </div>
               <div class="form-group">
                 <label for="txtReferrals">Referrals</label>
-                <input type="text" class="form-control" id="txtReferrals" placeholder="Input Referrals" value="winninetysix">
+                <input type="text" class="form-control" id="txtReferrals" placeholder="Input Referrals" value="yangshun2533">
                 <small id="txtReferralsHelp" class="form-text text-muted">推荐人账号，可以返佣，不填则由项目方收取。免费工具，耗时耗力，如果能不改推荐，感谢感谢。</small>
               </div>
               <div class="form-group">
@@ -480,8 +480,7 @@
         </div>
         <div class="row">
           <div class="col text-center">
-            页面脚本集成了Scatter插件，玩家登陆继续挖矿，更加安全可靠。<br />可以往前GITHUB地址：<a href="https://github.com/win96me/dicehelper.git" target="_blank">https://github.com/win96me/dicehelper.git</a>
-            下载离线版本。
+            页面脚本集成了Scatter插件，授权插件后可自动挖矿
           </div>
         </div>
         <div class="raw">
